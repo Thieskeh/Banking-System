@@ -34,8 +34,9 @@ This project is a simple banking system implemented using Spring Boot and Docker
 2. Build the services using Maven:
 
     ```bash
-    mvn clean install
+    mvn clean package
     ```
+Make sure to do this for the root project (banking-system). This will build the packages that are mounted in docker.
 
 ## Running the Application
 
