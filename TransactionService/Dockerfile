@@ -1,0 +1,14 @@
+# Use an official OpenJDK runtime as a parent image
+FROM openjdk:21-jdk-slim
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the project files into the container
+COPY target/TransactionService-0.0.1-SNAPSHOT.jar transaction-service.jar
+
+# Expose the port that the service runs on
+EXPOSE 8082
+
+# Command to run the application
+ENTRYPOINT ["java", "-jar", "transaction-service.jar"]

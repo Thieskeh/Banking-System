@@ -1,0 +1,75 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: accountdb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: userpassword
+    ports:
+      - "3306:3306"
+    networks:
+      - banking-network
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  eureka-service:
+    build:
+      context: ./EurekaService
+      dockerfile: Dockerfile
+    container_name: eureka-service
+    ports:
+      - "8761:8761"
+    networks:
+      - banking-network
+
+  api-gateway:
+    build:
+      context: ./ApiGateway
+      dockerfile: Dockerfile
+    container_name: api-gateway
+    ports:
+      - "8080:8080"
+    networks:
+      - banking-network
+    depends_on:
+      - mysql
+      - eureka-service
+      - account-service
+      - transaction-service
+
+
+  account-service:
+    build:
+      context: ./AccountService
+      dockerfile: Dockerfile
+    container_name: account-service
+    ports:
+      - "8081:8081"
+    networks:
+      - banking-network
+    depends_on:
+      - mysql
+      - eureka-service
+
+  transaction-service:
+    build:
+      context: ./TransactionService
+      dockerfile: Dockerfile
+    container_name: transaction-service
+    ports:
+      - "8082:8082"
+    networks:
+      - banking-network
+    depends_on:
+      - mysql
+      - eureka-service
+
+networks:
+  banking-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
