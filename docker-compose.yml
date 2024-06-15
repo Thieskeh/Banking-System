@@ -35,10 +35,10 @@ services:
     networks:
       - banking-network
     depends_on:
-      - mysql
       - eureka-service
       - account-service
       - transaction-service
+    restart: on-failure
 
 
   account-service:
@@ -53,6 +53,7 @@ services:
     depends_on:
       - mysql
       - eureka-service
+    restart: on-failure
 
   transaction-service:
     build:
@@ -66,6 +67,7 @@ services:
     depends_on:
       - mysql
       - eureka-service
+    restart: on-failure
 
 networks:
   banking-network:

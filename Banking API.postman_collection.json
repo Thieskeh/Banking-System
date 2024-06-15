@@ -1,0 +1,336 @@
+{
+	"info": {
+		"_postman_id": "a8f85825-d223-4f5b-97f7-a42ef7d6c9eb",
+		"name": "Banking API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14308158"
+	},
+	"item": [
+		{
+			"name": "Create Account",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"lastname\": \"Doe\",\n    \"email\": \"johndoe@example.com\",\n    \"openingAmount\": 1000.00\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Account 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"lastname\": \"Doe\",\n    \"email\": \"johndoe@example.com\",\n    \"openingAmount\": 1000.00\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Account by ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/accounts/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accounts",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Accounts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Account",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"lastname\": \"Doe\",\n    \"email\": \"john.doe@example.com\",\n    \"openingAmount\": 1200.00\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/accounts/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accounts",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Account",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/accounts/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accounts",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Transaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fromAccountId\": 1,\n    \"toAccountId\": 2,\n    \"amount\": 200.00\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Transaction by ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/transactions/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transactions",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Transactions",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Transaction",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fromAccountId\": 1,\n    \"toAccountId\": 3,\n    \"amount\": 250.00\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/transactions/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transactions",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Transaction",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/transactions/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transactions",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
